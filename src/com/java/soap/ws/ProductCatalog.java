@@ -8,7 +8,7 @@ import javax.jws.WebService;
 
 import com.java.soap.business.ProductServiceImpl;
 
-@WebService
+@WebService(name="TestMartCatalog", portName="TestMartCatalogPort", serviceName="TestMartCatalogService")
 public class ProductCatalog {
 	
 	ProductServiceImpl productService = new ProductServiceImpl();
@@ -19,9 +19,14 @@ public class ProductCatalog {
 		return productService.getProductCategories();
 	}
 	
-	@WebMethod
+	@WebMethod(exclude=true)
 	public List<String> getProducts(String category) {
 		return productService.getProducts(category);
+	}
+	
+	@WebMethod(exclude=true)
+	public boolean addProduct(String category, String product) {
+		return productService.addProduct(category, product);
 	}
 
 }

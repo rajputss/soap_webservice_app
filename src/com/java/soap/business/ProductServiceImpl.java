@@ -45,6 +45,22 @@ public class ProductServiceImpl {
 		}
 		return null;
 	}
-
+	
+	public boolean addProduct(String category, String product) {
+		switch(category.toLowerCase()) {
+		case "books":
+			bookList.add(product);
+			break;
+		case "music":
+			musicList.add(product);
+			break;
+		case "movies":
+			movieList.add(product);
+			break;
+		default:
+			return false;
+		}
+		return true;
+	}
 
 }
