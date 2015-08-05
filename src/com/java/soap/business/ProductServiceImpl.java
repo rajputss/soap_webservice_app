@@ -5,6 +5,8 @@ import java.util.List;
 
 import javax.jws.WebService;
 
+import com.java.soap.model.Product;
+
 @WebService
 public class ProductServiceImpl {
 	
@@ -61,6 +63,14 @@ public class ProductServiceImpl {
 			return false;
 		}
 		return true;
+	}
+
+	public List<Product> getProductsv2(String category) {
+		
+		List<Product> productList = new ArrayList<>();
+		productList.add(new Product("Java Brains", "1234", 39.99));
+		productList.add(new Product("Head First Java", "7689", 29.99));
+		return productList;
 	}
 
 }
